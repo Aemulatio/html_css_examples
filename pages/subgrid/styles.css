@@ -1,0 +1,20 @@
+﻿.parent {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .parent > article {
+      background: #fff;
+      border: 1px solid #d9e4f2;
+      border-radius: 12px;
+      padding: 10px;
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+    }
+
+    .parent > article > * {
+      margin: 0;
+    }
+

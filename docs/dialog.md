@@ -27,6 +27,7 @@ modal.close();
 3. Проверяй UX с клавиатурой (`Esc`, `Tab`).
 
 ## Что смотреть в демо
-Файл: `pages/dialog.html`
+Файл: `pages/dialog/index.html`
 - открытие/закрытие через JS;
 - базовый нативный modal flow.
+

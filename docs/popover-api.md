@@ -49,7 +49,8 @@
 4. Проверяй управление с клавиатуры (`Tab`, `Esc`).
 
 ## Что смотреть в демо
-Файл: `pages/popover.html`
+Файл: `pages/popover/index.html`
 - Пример `auto` popover.
 - Пример `manual` с `show/hide/toggle`.
 - Стилизация через `:popover-open`.
+

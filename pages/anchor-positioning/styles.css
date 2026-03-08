@@ -1,12 +1,4 @@
-﻿<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Anchor Positioning</title>
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .stack {
+﻿.stack {
       display: grid;
       gap: 1rem;
     }
@@ -84,43 +76,4 @@
       font-size: .93rem;
       margin-top: .75rem;
     }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <h1>CSS Anchor Positioning</h1>
-    <p>Экспериментальная фича: элемент позиционируется относительно другого элемента-якоря.</p>
 
-    <section class="stack">
-      <article class="demo example">
-        <h2>1) Подсказка под кнопкой</h2>
-        <button class="anchor-btn">Якорь-кнопка</button>
-        <div class="anchor-pop">Блок привязан к кнопке через `position-anchor` и `anchor()`.</div>
-      </article>
-
-      <article class="demo example">
-        <h2>2) Notification badge у чипа</h2>
-        <span class="chip-anchor">Inbox</span>
-        <span class="badge">3</span>
-        <p class="note">Badge остается привязан к чипу даже при изменении размеров текста.</p>
-      </article>
-
-      <article class="demo">
-        <h2>Мини-шаблон</h2>
-<pre><code>.trigger { anchor-name: --t; }
-
-.pop {
-  position: absolute;
-  position-anchor: --t;
-  left: anchor(left);
-  top: calc(anchor(bottom) + 8px);
-}</code></pre>
-      </article>
-    </section>
-
-    <a href="../docs/anchor-positioning.md">Документация: Anchor Positioning</a>
-    <br>
-    <a class="back" href="../index.html">← Назад</a>
-  </main>
-</body>
-</html>

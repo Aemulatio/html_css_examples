@@ -44,7 +44,8 @@
 ```
 
 ## Что смотреть в демо
-Файл: `pages/anchor-positioning.html`
+Файл: `pages/anchor-positioning/index.html`
 - подсказка, привязанная к кнопке;
 - badge, привязанный к чипу;
 - минимальный шаблон для копирования.
+

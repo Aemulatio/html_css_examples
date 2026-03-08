@@ -1,0 +1,30 @@
+﻿.track {
+      height: 220px;
+      overflow: auto;
+      border: 1px solid #c8d8ed;
+      border-radius: 12px;
+      padding: 10px;
+      scroll-timeline-name: --panel;
+      scroll-timeline-axis: block;
+    }
+
+    .progress {
+      height: 8px;
+      width: 100%;
+      transform-origin: left;
+      background: #0f766e;
+      animation: fill linear both;
+      animation-timeline: --panel;
+    }
+
+    .space {
+      height: 620px;
+      background: linear-gradient(#ffffff, #e9f4ff);
+      border-radius: 8px;
+    }
+
+    @keyframes fill {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
