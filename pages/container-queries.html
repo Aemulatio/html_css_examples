@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Queries</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .host {
+      container-type: inline-size;
+      resize: horizontal;
+      overflow: auto;
+      border: 1px dashed #8aa2bf;
+      border-radius: 12px;
+      min-width: 240px;
+      max-width: 100%;
+      padding: .75rem;
+    }
+
+    .box {
+      background: #eef4ff;
+      border-radius: 10px;
+      padding: 1rem;
+      display: grid;
+      gap: .5rem;
+    }
+
+    @container (min-width: 500px) {
+      .box {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>CSS Container Queries</h1>
+    <p>Потяни правую границу блока.</p>
+    <div class="demo host">
+      <div class="box">
+        <div>Колонка A</div>
+        <div>Колонка B</div>
+      </div>
+    </div>
+    <a class="back" href="../index.html">← Назад</a>
+  </main>
+</body>
+</html>

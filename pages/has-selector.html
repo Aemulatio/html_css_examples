@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:has()</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .card {
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid #d2dce9;
+    }
+
+    .card:has(input:checked) {
+      border-color: #0f766e;
+      background: #ecfffb;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>CSS :has()</h1>
+    <div class="demo card">
+      <label><input type="checkbox"> Подсветить контейнер через :has()</label>
+    </div>
+    <a class="back" href="../index.html">← Назад</a>
+  </main>
+</body>
+</html>
