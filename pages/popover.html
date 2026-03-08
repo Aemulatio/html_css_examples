@@ -5,16 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popover API</title>
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .panel {
+      border: 1px solid #dbe6f4;
+      border-radius: 12px;
+      padding: .9rem;
+      background: #fff;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    [popover] {
+      border: 1px solid #cad8ea;
+      border-radius: 10px;
+      padding: .75rem;
+      max-width: 320px;
+      box-shadow: 0 10px 28px rgba(19, 40, 64, .15);
+    }
+
+    [popover]:popover-open {
+      animation: rise .14s ease;
+    }
+
+    .actions {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: .75rem;
+    }
+
+    button {
+      border: 1px solid #cad9ec;
+      background: #f8fbff;
+      color: #1f3248;
+      border-radius: 9px;
+      padding: .45rem .7rem;
+      cursor: pointer;
+    }
+
+    .note {
+      color: #44617f;
+      font-size: .92rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: .75rem;
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid #d7e4f3;
+      background: #fbfdff;
+      font-size: .9rem;
+    }
+
+    @keyframes rise {
+      from { opacity: .2; transform: translateY(6px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="page">
     <h1>HTML Popover API</h1>
-    <div class="demo">
-      <button popovertarget="tip">Открыть popover</button>
-      <div id="tip" popover>
-        Это popover без кастомного JavaScript.
-      </div>
-    </div>
+    <p>Нативные всплывающие панели без библиотек. Есть режимы `auto` и `manual`.</p>
+
+    <section class="grid">
+      <article class="demo panel">
+        <h2>1) Auto popover</h2>
+        <button popovertarget="auto-tip">Показать подсказку</button>
+        <div id="auto-tip" popover>
+          `auto` закрывается по Esc, клику вне, и при открытии другого auto-popover.
+        </div>
+        <p class="note">Используй для тултипов, коротких подсказок, контекстных заметок.</p>
+      </article>
+
+      <article class="demo panel">
+        <h2>2) Manual popover</h2>
+        <div class="actions">
+          <button popovertarget="manual-pop" popovertargetaction="show">Show</button>
+          <button popovertarget="manual-pop" popovertargetaction="hide">Hide</button>
+          <button popovertarget="manual-pop" popovertargetaction="toggle">Toggle</button>
+        </div>
+        <div id="manual-pop" popover="manual">
+          Это `manual`: сам управляешь show/hide/toggle.
+        </div>
+        <p class="note">Удобно для кастомных меню и сценариев с явным контролем состояния.</p>
+      </article>
+    </section>
+
+    <section class="demo panel" style="margin-top: 1rem;">
+      <h2>Мини-шаблон</h2>
+<pre><code>&lt;button popovertarget="help"&gt;?&lt;/button&gt;
+&lt;div id="help" popover&gt;Подсказка&lt;/div&gt;
+
+&lt;button popovertarget="menu" popovertargetaction="toggle"&gt;Menu&lt;/button&gt;
+&lt;div id="menu" popover="manual"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <a href="../docs/popover-api.md">Документация: Popover API</a>
+    <br>
     <a class="back" href="../index.html">← Назад</a>
   </main>
 </body>

@@ -6,28 +6,101 @@
   <title>Container Queries</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
+    .split {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      margin-block: 1rem;
+    }
+
     .host {
+      container-name: cards;
       container-type: inline-size;
       resize: horizontal;
       overflow: auto;
       border: 1px dashed #8aa2bf;
       border-radius: 12px;
-      min-width: 240px;
+      min-width: 260px;
       max-width: 100%;
       padding: .75rem;
+      background: #f8fbff;
     }
 
-    .box {
-      background: #eef4ff;
-      border-radius: 10px;
-      padding: 1rem;
+    .cards {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      border: 1px solid #d5e1f0;
+      border-radius: 12px;
+      background: #fff;
+      padding: .8rem;
       display: grid;
       gap: .5rem;
     }
 
-    @container (min-width: 500px) {
-      .box {
+    .meta {
+      color: #47607c;
+      font-size: .92rem;
+    }
+
+    .badge {
+      justify-self: start;
+      background: #e7f7f3;
+      color: #0f766e;
+      border-radius: 999px;
+      padding: .2rem .55rem;
+      font-size: .8rem;
+    }
+
+    @container cards (min-width: 520px) {
+      .cards {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .card {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
+
+      .card h3,
+      .card .meta {
+        grid-column: 2;
+      }
+    }
+
+    @container cards (min-width: 760px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .badge {
+        background: #dff2ff;
+        color: #0f4b76;
+      }
+    }
+
+    .tip {
+      margin: .5rem 0 0;
+      color: #34506f;
+      font-size: .95rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: .75rem;
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid #d7e4f3;
+      background: #fbfdff;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 900px) {
+      .split {
+        grid-template-columns: 1.2fr 1fr;
       }
     }
   </style>
@@ -35,13 +108,49 @@
 <body>
   <main class="page">
     <h1>CSS Container Queries</h1>
-    <p>Потяни правую границу блока.</p>
-    <div class="demo host">
-      <div class="box">
-        <div>Колонка A</div>
-        <div>Колонка B</div>
+    <p>Меняется не от ширины окна, а от ширины контейнера. Потяни правую границу блока.</p>
+
+    <section class="split">
+      <div class="demo host">
+        <div class="cards">
+          <article class="card">
+            <span class="badge">State</span>
+            <h3>Карточка #1</h3>
+            <p class="meta">На 520px меняется внутренняя сетка.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Query</span>
+            <h3>Карточка #2</h3>
+            <p class="meta">На 760px становится 3 колонки.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Layout</span>
+            <h3>Карточка #3</h3>
+            <p class="meta">Окно можно не трогать, важен только контейнер.</p>
+          </article>
+        </div>
       </div>
-    </div>
+
+      <div class="demo">
+        <h2>Мини-шаблон</h2>
+<pre><code>.host {
+  container-name: cards;
+  container-type: inline-size;
+}
+
+@container cards (min-width: 520px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+}
+
+@container cards (min-width: 760px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}</code></pre>
+        <p class="tip">Когда компонент живет в сайдбаре, модалке или карточке, `@container` обычно лучше `@media`.</p>
+      </div>
+    </section>
+
+    <a href="../docs/container-queries.md">Документация: Container Queries</a>
+    <br>
     <a class="back" href="../index.html">← Назад</a>
   </main>
 </body>

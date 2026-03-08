@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Carousel (MDN Overflow)</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .carousel-title {
+      margin: 0 0 .8rem;
+      font-size: 1.1rem;
+    }
+
+    .carousel {
+      width: min(960px, 92vw);
+      height: 320px;
+      padding: 20px;
+      margin: 0 auto;
+
+      display: flex;
+      gap: 4vw;
+
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+
+      anchor-name: --my-carousel;
+      scroll-marker-group: after;
+
+      border: 1px solid #d5e2f0;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .carousel > li {
+      list-style: none;
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+
+      border: 1px solid #d8e6f4;
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      color: #17324d;
+    }
+
+    .carousel > li:nth-child(1) { background: linear-gradient(135deg, #ecfeff, #dbeafe); }
+    .carousel > li:nth-child(2) { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+    .carousel > li:nth-child(3) { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+    .carousel > li:nth-child(4) { background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+
+    .carousel h3,
+    .carousel p {
+      margin: 0;
+    }
+
+    .carousel p {
+      margin-top: .5rem;
+      color: #395676;
+    }
+
+    .carousel::scroll-button(*) {
+      border: 0;
+      font-size: 2rem;
+      background: none;
+      color: #16324a;
+      opacity: .7;
+      cursor: pointer;
+      position: absolute;
+      position-anchor: --my-carousel;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .carousel::scroll-button(*):hover,
+    .carousel::scroll-button(*):focus {
+      opacity: 1;
+    }
+
+    .carousel::scroll-button(*):active {
+      translate: 1px 1px;
+    }
+
+    .carousel::scroll-button(*):disabled {
+      opacity: .2;
+      cursor: unset;
+    }
+
+    .carousel::scroll-button(left) {
+      content: "◄" / "Previous";
+      right: calc(anchor(left) - 44px);
+      bottom: calc(anchor(top) + 16px);
+    }
+
+    .carousel::scroll-button(right) {
+      content: "►" / "Next";
+      left: calc(anchor(right) - 44px);
+      bottom: calc(anchor(top) + 16px);
+    }
+
+    .carousel::scroll-marker-group {
+      position: absolute;
+      position-anchor: --my-carousel;
+      top: calc(anchor(bottom) - 46px);
+      justify-self: anchor-center;
+
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .carousel > li::scroll-marker {
+      content: attr(data-accname);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #16324a;
+      background: transparent;
+      overflow: hidden;
+      text-indent: 16px;
+    }
+
+    .carousel > li::scroll-marker:target-current {
+      background: #16324a;
+    }
+
+    .note {
+      margin: .9rem 0 0;
+      color: #456381;
+      font-size: .94rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>CSS Carousel (по MDN Overflow Guide)</h1>
+    <p class="carousel-title">Реализация через `::scroll-button()` и `::scroll-marker`, без JavaScript.</p>
+
+    <ul class="demo carousel">
+      <li data-accname="Slide 1">
+        <h3>Слайд 1</h3>
+        <p>Flex + scroll-snap + generated controls.</p>
+      </li>
+      <li data-accname="Slide 2">
+        <h3>Слайд 2</h3>
+        <p>Кнопки prev/next генерируются браузером.</p>
+      </li>
+      <li data-accname="Slide 3">
+        <h3>Слайд 3</h3>
+        <p>Маркеры пагинации тоже нативные.</p>
+      </li>
+      <li data-accname="Slide 4">
+        <h3>Слайд 4</h3>
+        <p>Активный marker выделяется через :target-current.</p>
+      </li>
+    </ul>
+
+    <p class="note">Если браузер пока не поддерживает CSS Carousel pseudo-elements, останется рабочий горизонтальный snap-скролл.</p>
+
+    <a class="back" href="../index.html">← Назад</a>
+  </main>
+</body>
+</html>
