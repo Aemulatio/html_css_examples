@@ -21,6 +21,7 @@
       gap: 4vw;
 
       overflow-x: scroll;
+      overflow-y: hidden;
       scroll-snap-type: x mandatory;
 
       anchor-name: --my-carousel;
@@ -61,42 +62,43 @@
     }
 
     .carousel::scroll-button(*) {
-      border: 0;
-      font-size: 2rem;
-      background: none;
-      color: #16324a;
-      opacity: .7;
-      cursor: pointer;
-      position: absolute;
-      position-anchor: --my-carousel;
-      padding: 0;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #bfd0e5;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #17324d;
+      box-shadow: 0 4px 12px rgba(16, 47, 82, .15);
+      font-size: 1.2rem;
+      font-weight: 700;
       line-height: 1;
+      opacity: .95;
+      cursor: pointer;
+      transition: transform .12s ease, opacity .12s ease;
     }
 
     .carousel::scroll-button(*):hover,
     .carousel::scroll-button(*):focus {
+      transform: scale(1.04);
       opacity: 1;
     }
 
     .carousel::scroll-button(*):active {
-      translate: 1px 1px;
+      transform: scale(.98);
     }
 
     .carousel::scroll-button(*):disabled {
-      opacity: .2;
+      opacity: .35;
       cursor: unset;
+      transform: none;
     }
 
     .carousel::scroll-button(left) {
-      content: "◄" / "Previous";
-      right: calc(anchor(left) - 44px);
-      bottom: calc(anchor(top) + 16px);
+      content: "‹" / "Previous";
     }
 
     .carousel::scroll-button(right) {
-      content: "►" / "Next";
-      left: calc(anchor(right) - 44px);
-      bottom: calc(anchor(top) + 16px);
+      content: "›" / "Next";
     }
 
     .carousel::scroll-marker-group {
