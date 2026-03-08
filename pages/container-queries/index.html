@@ -1,41 +1,48 @@
 ﻿<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Container Queries</title>
-  <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <main class="page">
-    <h1>CSS Container Queries</h1>
-    <p>Меняется не от ширины окна, а от ширины контейнера. Потяни правую границу блока.</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Container Queries</title>
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <main class="page">
+            <h1>CSS Container Queries</h1>
+            <p>
+                Меняется не от ширины окна, а от ширины контейнера. Потяни
+                правую границу блока.
+            </p>
 
-    <section class="split">
-      <div class="demo host">
-        <div class="cards">
-          <article class="card">
-            <span class="badge">State</span>
-            <h3>Карточка #1</h3>
-            <p class="meta">На 520px меняется внутренняя сетка.</p>
-          </article>
-          <article class="card">
-            <span class="badge">Query</span>
-            <h3>Карточка #2</h3>
-            <p class="meta">На 760px становится 3 колонки.</p>
-          </article>
-          <article class="card">
-            <span class="badge">Layout</span>
-            <h3>Карточка #3</h3>
-            <p class="meta">Окно можно не трогать, важен только контейнер.</p>
-          </article>
-        </div>
-      </div>
+            <section class="split">
+                <div class="demo host">
+                    <div class="cards">
+                        <article class="card">
+                            <span class="badge">State</span>
+                            <h3>Карточка #1</h3>
+                            <p class="meta">
+                                На 520px меняется внутренняя сетка.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <span class="badge">Query</span>
+                            <h3>Карточка #2</h3>
+                            <p class="meta">На 760px становится 3 колонки.</p>
+                        </article>
+                        <article class="card">
+                            <span class="badge">Layout</span>
+                            <h3>Карточка #3</h3>
+                            <p class="meta">
+                                Окно можно не трогать, важен только контейнер.
+                            </p>
+                        </article>
+                    </div>
+                </div>
 
-      <div class="demo">
-        <h2>Мини-шаблон</h2>
-<pre><code>.host {
+                <div class="demo">
+                    <h2>Мини-шаблон</h2>
+                    <pre><code>.host {
   container-name: cards;
   container-type: inline-size;
 }
@@ -47,14 +54,18 @@
 @container cards (min-width: 760px) {
   .cards { grid-template-columns: repeat(3, 1fr); }
 }</code></pre>
-        <p class="tip">Когда компонент живет в сайдбаре, модалке или карточке, `@container` обычно лучше `@media`.</p>
-      </div>
-    </section>
+                    <p class="tip">
+                        Когда компонент живет в сайдбаре, модалке или карточке,
+                        `@container` обычно лучше `@media`.
+                    </p>
+                </div>
+            </section>
 
-    <a href="../../docs/container-queries.md">Документация: Container Queries</a>
-    <br>
-    <a class="back" href="../../index.html">← Назад</a>
-  </main>
-</body>
+            <a href="../../docs/container-queries.md"
+                >Документация: Container Queries</a
+            >
+            <br />
+            <a class="back" href="../../index.html">← Назад</a>
+        </main>
+    </body>
 </html>
-

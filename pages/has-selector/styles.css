@@ -1,11 +1,10 @@
 ﻿.card {
-      padding: 1rem;
-      border-radius: 12px;
-      border: 1px solid #d2dce9;
-    }
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #d2dce9;
+}
 
-    .card:has(input:checked) {
-      border-color: #0f766e;
-      background: #ecfffb;
-    }
-
+.card:has(input:checked) {
+    border-color: #0f766e;
+    background: #ecfffb;
+}

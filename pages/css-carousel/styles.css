@@ -1,127 +1,136 @@
 ﻿.carousel-title {
-      margin: 0 0 .8rem;
-      font-size: 1.1rem;
-    }
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+}
 
-    .carousel {
-      width: min(960px, 92vw);
-      height: 320px;
-      padding: 20px;
-      margin: 0 auto;
+.carousel {
+    width: min(960px, 92vw);
+    height: 320px;
+    padding: 20px;
+    margin: 0 auto;
 
-      display: flex;
-      gap: 4vw;
+    display: flex;
+    gap: 4vw;
 
-      overflow-x: scroll;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
 
-      anchor-name: --my-carousel;
-      scroll-marker-group: after;
+    anchor-name: --my-carousel;
+    scroll-marker-group: after;
 
-      border: 1px solid #d5e2f0;
-      border-radius: 16px;
-      background: #fff;
-    }
+    border: 1px solid #d5e2f0;
+    border-radius: 16px;
+    background: #fff;
+}
 
-    .carousel > li {
-      list-style: none;
-      flex: 0 0 100%;
-      scroll-snap-align: center;
+.carousel > li {
+    list-style: none;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
 
-      border: 1px solid #d8e6f4;
-      border-radius: 12px;
-      padding: 1.25rem;
-      display: grid;
-      place-content: center;
-      text-align: center;
-      color: #17324d;
-    }
+    border: 1px solid #d8e6f4;
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: #17324d;
+}
 
-    .carousel > li:nth-child(1) { background: linear-gradient(135deg, #ecfeff, #dbeafe); }
-    .carousel > li:nth-child(2) { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
-    .carousel > li:nth-child(3) { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
-    .carousel > li:nth-child(4) { background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+.carousel > li:nth-child(1) {
+    background: linear-gradient(135deg, #ecfeff, #dbeafe);
+}
+.carousel > li:nth-child(2) {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+}
+.carousel > li:nth-child(3) {
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+}
+.carousel > li:nth-child(4) {
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+}
 
-    .carousel h3,
-    .carousel p {
-      margin: 0;
-    }
+.carousel h3,
+.carousel p {
+    margin: 0;
+}
 
-    .carousel p {
-      margin-top: .5rem;
-      color: #395676;
-    }
+.carousel p {
+    margin-top: 0.5rem;
+    color: #395676;
+}
 
-    .carousel::scroll-button(*) {
-      width: 40px;
-      height: 40px;
-      border: 1px solid #bfd0e5;
-      border-radius: 999px;
-      background: #ffffff;
-      color: #17324d;
-      box-shadow: 0 4px 12px rgba(16, 47, 82, .15);
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1;
-      opacity: .95;
-      cursor: pointer;
-      transition: transform .12s ease, opacity .12s ease;
-    }
+.carousel::scroll-button(*) {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bfd0e5;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #17324d;
+    box-shadow: 0 4px 12px rgba(16, 47, 82, 0.15);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.95;
+    cursor: pointer;
+    transition:
+        transform 0.12s ease,
+        opacity 0.12s ease;
+}
 
-    .carousel::scroll-button(*):hover,
-    .carousel::scroll-button(*):focus {
-      transform: scale(1.04);
-      opacity: 1;
-    }
+.carousel::scroll-button(*):hover,
+.carousel::scroll-button(*):focus {
+    transform: scale(1.04);
+    opacity: 1;
+}
 
-    .carousel::scroll-button(*):active {
-      transform: scale(.98);
-    }
+.carousel::scroll-button(*):active {
+    transform: scale(0.98);
+}
 
-    .carousel::scroll-button(*):disabled {
-      opacity: .35;
-      cursor: unset;
-      transform: none;
-    }
+.carousel::scroll-button(*):disabled {
+    opacity: 0.35;
+    cursor: unset;
+    transform: none;
+}
 
-    .carousel::scroll-button(left) {
-      content: "‹" / "Previous";
-    }
+.carousel::scroll-button(left) {
+    content: "‹" / "Previous";
+}
 
-    .carousel::scroll-button(right) {
-      content: "›" / "Next";
-    }
+.carousel::scroll-button(right) {
+    content: "›" / "Next";
+}
 
-    .carousel::scroll-marker-group {
-      position: absolute;
-      position-anchor: --my-carousel;
-      top: calc(anchor(bottom) - 46px);
-      justify-self: anchor-center;
+.carousel::scroll-marker-group {
+    position: absolute;
+    position-anchor: --my-carousel;
+    top: calc(anchor(bottom) - 46px);
+    justify-self: anchor-center;
 
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-    }
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
 
-    .carousel > li::scroll-marker {
-      content: attr(data-accname);
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 2px solid #16324a;
-      background: transparent;
-      overflow: hidden;
-      text-indent: 16px;
-    }
+.carousel > li::scroll-marker {
+    content: attr(data-accname);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #16324a;
+    background: transparent;
+    overflow: hidden;
+    text-indent: 16px;
+}
 
-    .carousel > li::scroll-marker:target-current {
-      background: #16324a;
-    }
+.carousel > li::scroll-marker:target-current {
+    background: #16324a;
+}
 
-    .note {
-      margin: .9rem 0 0;
-      color: #456381;
-      font-size: .94rem;
-    }
-
+.note {
+    margin: 0.9rem 0 0;
+    color: #456381;
+    font-size: 0.94rem;
+}
